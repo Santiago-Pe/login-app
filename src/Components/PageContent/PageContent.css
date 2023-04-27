@@ -1,5 +1,12 @@
 .page-content{
     height: 100vh;
     width: 100vw;
-    background-color: white;
+
+}
+.bg-dark{
+    background-color: #002f57;
+
+}
+.bg-light{
+    background-color: #eaf2f7;
 }

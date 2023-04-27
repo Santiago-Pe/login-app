@@ -1,8 +1,13 @@
-import React from 'react';
+/* ------------ Dependences------------*/
+import React, {useContext} from 'react';
 import clsx from 'clsx';
 import { styled } from '@mui/system';
 import useSwitch from '@mui/base/useSwitch';
 
+/* ------------ Context ------------*/
+import { ThemeContext } from "../../Context/ThemeContex";
+
+/* ------------ Styled Components ------------*/
 const blue = {
   700: '#0059B2',
 };
@@ -79,13 +84,20 @@ const SwitchTrack = styled('span')(
 `,
 );
 
-function MUISwitch(props) {
-  const { getInputProps, checked, disabled, focusVisible } = useSwitch(props);
 
+
+
+function MUISwitch(props) {
+  const { getInputProps, checked, disabled, focusVisible, onChange } = useSwitch(props);
+  const { handleMode } = useContext(ThemeContext);
   const stateClasses = {
     checked,
     disabled,
     focusVisible,
+    onChange
+  };
+  const handleChange = (event) => {
+    handleMode(checked)
   };
 
   return (
@@ -93,7 +105,7 @@ function MUISwitch(props) {
       <SwitchTrack>
         <SwitchThumb className={clsx(stateClasses)} />
       </SwitchTrack>
-      <SwitchInput {...getInputProps()} aria-label="Demo switch" />
+      <SwitchInput {...getInputProps({ onChange: handleChange })} aria-label="Demo switch" />
     </SwitchRoot>
   );
 }
