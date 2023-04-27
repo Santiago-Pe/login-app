@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/login-app/static/css/main.073c9b0a.css",
-    "main.js": "/login-app/static/js/main.a194a6fd.js",
+    "main.css": "/login-app/static/css/main.e6c13ad2.css",
+    "main.js": "/login-app/static/js/main.91704c89.js",
     "static/js/787.8ac8aa7e.chunk.js": "/login-app/static/js/787.8ac8aa7e.chunk.js",
-    "static/media/logo.svg": "/login-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/login-app/index.html",
-    "main.073c9b0a.css.map": "/login-app/static/css/main.073c9b0a.css.map",
-    "main.a194a6fd.js.map": "/login-app/static/js/main.a194a6fd.js.map",
+    "main.e6c13ad2.css.map": "/login-app/static/css/main.e6c13ad2.css.map",
+    "main.91704c89.js.map": "/login-app/static/js/main.91704c89.js.map",
     "787.8ac8aa7e.chunk.js.map": "/login-app/static/js/787.8ac8aa7e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.a194a6fd.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.91704c89.js"
   ]
 }
