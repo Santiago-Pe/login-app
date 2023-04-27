@@ -1,0 +1,20 @@
+@media (max-width: 740px){
+    .paper-form{
+       width: 100%;
+       margin: 0;
+    }
+}
+
+.paper-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+.form{
+    width: 100%;
+}
+.btn-from{
+    margin-top: 1rem;
+}
