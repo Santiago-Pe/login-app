@@ -4,19 +4,24 @@ import Form from "./Components/Form/Form";
 import PageContent from './Components/PageContent/PageContent'
 /* ------------ Child Components ------------*/
 import Navbar from "./Components/Navbar/Navbar";
-import { ThemeProvider } from "./Context/ThemeContex";
 /* ------------Context ------------*/
+import { ThemeProvider } from "./Context/ThemeContex";
+import { LanguageProvider } from "./Context/LanguageContext";
 function App() {
 
   /* ------------Render ------------*/
   return (
 
-    <ThemeProvider>
-      <PageContent>
-        <Navbar />
-        <Form/>
-      </PageContent>
-    </ThemeProvider>
+    
+      <ThemeProvider>
+        <LanguageProvider>
+          <PageContent>
+              <Navbar />
+              <Form/>
+          </PageContent>
+        </LanguageProvider>
+      </ThemeProvider>
+
 
   );
 }

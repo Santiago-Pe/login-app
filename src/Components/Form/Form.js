@@ -1,5 +1,5 @@
 /* ------------ Dependecies ------------*/
-import React from "react";
+import React, {useContext} from "react";
 
 /* ------------ Material UI ------------*/
 import FormControl from '@mui/material/FormControl';
@@ -18,6 +18,9 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
 import { styled } from '@mui/system';
 
+/* ------------Context ------------*/
+import { LanguageContext } from "../../Context/LanguageContext";
+
 /* ------------ Styles ------------*/
 import './Form.css'
 
@@ -27,8 +30,48 @@ const ButtonFrom = styled(Button)(({ theme }) => ({
    
 }));
 
+
+/* ------------ Words ------------*/
+
+const words = {
+    english:{
+
+        signIn: 'Sign In', 
+        email: 'Email',
+        password: 'Password',
+        remember: 'Remember Me'
+
+
+    },
+    french:{
+        signIn: 'Se Connecter', 
+        email: 'Adresse Electronique',
+        password: 'Mot de Passe',
+        remember: 'Souviens-toi De Moi'
+       
+    },
+    spanish:{
+        signIn: 'Registrarse', 
+        email: 'Correo Electronico',
+        password: 'Contraseña',
+        remember: 'Recordarme'
+    }
+}
+
+
+
 /* ------------ Component ------------*/
-const Form = () =>{
+
+const Form = () => {
+
+    /* ------------ Context ------------*/
+    const { language, toggleLanguage } = useContext(LanguageContext);
+
+     /* ------------ Words ------------*/
+     const {signIn, email, password, remember} = words[language]
+
+    /* ------------ Function ------------*/
+
 
     /* ------------ Render ------------*/
     return(
@@ -37,10 +80,11 @@ const Form = () =>{
                 <Avatar sx={{ bgcolor: deepOrange[500] }}>
                     <LockIcon/>
                 </Avatar>
-                <Typography variant="h5">Sign In</Typography>
+                <Typography variant="h5">{signIn}</Typography>
                 <FormControl margin="normal" required variant="standard">
                     <Select
-                    value='english'
+                    value={language}
+                    onChange={toggleLanguage}
                     >
                         <MenuItem value='english'>English</MenuItem>
                         <MenuItem value='french'> French</MenuItem>
@@ -50,18 +94,18 @@ const Form = () =>{
                 <form className="form">
 
                     <FormControl margin="normal" required fullWidth>
-                        <InputLabel htmlFor='email'>Email</InputLabel>
+                        <InputLabel htmlFor='email'>{email}</InputLabel>
                         <Input id="email" name="email" autoFocus></Input>
                     </FormControl>
 
                     <FormControl margin="normal" required fullWidth>
-                        <InputLabel htmlFor='password'>Password</InputLabel>
+                        <InputLabel htmlFor='password'>{password}</InputLabel>
                         <Input id="password" name="password"></Input>
                     </FormControl>
 
-                    <FormControlLabel control={<Checkbox color="primary"/>} label='remember me'/>
+                    <FormControlLabel control={<Checkbox color="primary"/>} label={remember}/>
                     
-                    <ButtonFrom variant="contained" type="submit" fullWidth color="primary" className="btn-from">Sig in</ButtonFrom>
+                    <ButtonFrom variant="contained" type="submit" fullWidth color="primary" className="btn-from">{signIn}</ButtonFrom>
                 </form>
             </Paper>
         </Container>
