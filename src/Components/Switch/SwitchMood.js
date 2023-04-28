@@ -85,19 +85,28 @@ const SwitchTrack = styled('span')(
 );
 
 
-
+/* ------------ Components ------------*/
 
 function MUISwitch(props) {
+
+  /* ------------ Props ------------*/
   const { getInputProps, checked, disabled, focusVisible, onChange } = useSwitch(props);
-  const { handleMode } = useContext(ThemeContext);
+
+  /* ------------ Context ------------*/
+  const { toggleTheme } = useContext(ThemeContext);
+
+  /* ------------ Components ------------*/
   const stateClasses = {
     checked,
     disabled,
     focusVisible,
     onChange
   };
+  /* ------------ Functions ------------*/
+  
+  // Managin dark mode context
   const handleChange = (event) => {
-    handleMode(checked)
+    toggleTheme(checked)
   };
 
   return (
@@ -110,6 +119,8 @@ function MUISwitch(props) {
   );
 }
 
+
+/* ------------ Finally Components ------------*/
 export default function UseSwitchesCustom() {
   return <MUISwitch defaultChecked />;
 }

@@ -1,4 +1,7 @@
+/* ------------ Dependecies ------------*/
 import React from "react";
+
+/* ------------ Material UI ------------*/
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
@@ -14,14 +17,20 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
 import { styled } from '@mui/system';
+
+/* ------------ Styles ------------*/
 import './Form.css'
 
+/* ------------ Styles ------------*/
 const ButtonFrom = styled(Button)(({ theme }) => ({
     marginTop: '1rem',
    
 }));
+
+/* ------------ Component ------------*/
 const Form = () =>{
 
+    /* ------------ Render ------------*/
     return(
         <Container maxWidth='xs' sx={{marginTop: '2rem', display: 'flex', justifyContent: 'center'}}>
             <Paper elevation={1} className="paper-form">
@@ -38,18 +47,22 @@ const Form = () =>{
                         <MenuItem value='spanish'>Spanish</MenuItem>
                     </Select>
                 </FormControl>
-            <form className="form">
-                <FormControl margin="normal" required fullWidth>
-                    <InputLabel htmlFor='email'>Email</InputLabel>
-                    <Input id="email" name="email" autoFocus></Input>
-                </FormControl>
-                <FormControl margin="normal" required fullWidth>
-                    <InputLabel htmlFor='password'>Password</InputLabel>
-                    <Input id="password" name="password"></Input>
-                </FormControl>
-                <FormControlLabel control={<Checkbox color="primary"/>} label='remember me'/>
-                <ButtonFrom variant="contained" type="submit" fullWidth color="primary" className="btn-from">Sig in</ButtonFrom>
-            </form>
+                <form className="form">
+
+                    <FormControl margin="normal" required fullWidth>
+                        <InputLabel htmlFor='email'>Email</InputLabel>
+                        <Input id="email" name="email" autoFocus></Input>
+                    </FormControl>
+
+                    <FormControl margin="normal" required fullWidth>
+                        <InputLabel htmlFor='password'>Password</InputLabel>
+                        <Input id="password" name="password"></Input>
+                    </FormControl>
+
+                    <FormControlLabel control={<Checkbox color="primary"/>} label='remember me'/>
+                    
+                    <ButtonFrom variant="contained" type="submit" fullWidth color="primary" className="btn-from">Sig in</ButtonFrom>
+                </form>
             </Paper>
         </Container>
             

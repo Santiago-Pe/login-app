@@ -7,6 +7,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import { ThemeProvider } from "./Context/ThemeContex";
 /* ------------Context ------------*/
 function App() {
+
+  /* ------------Render ------------*/
   return (
 
     <ThemeProvider>
@@ -14,7 +16,6 @@ function App() {
         <Navbar />
         <Form/>
       </PageContent>
-
     </ThemeProvider>
 
   );

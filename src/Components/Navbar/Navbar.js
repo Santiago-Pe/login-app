@@ -1,5 +1,6 @@
 /* ------------ Dependecies ------------*/
 import React, { useContext } from "react";
+
 /* ------------ Material UI ------------*/
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
@@ -10,8 +11,8 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import GTranslateIcon from "@mui/icons-material/GTranslate";
 import SearchIcon from "@mui/icons-material/Search";
-// import Switch from '@mui/material/Switch';
 import MUISwitch from "../Switch/SwitchMood";
+
 /* ------------ Context ------------*/
 import { ThemeContext } from "../../Context/ThemeContex";
 
@@ -62,13 +63,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 /* ------------ Components ------------*/
 
 export default function Navbar() {
-  /* ------------ Context ------------*/
 
+  /* ------------ Context ------------*/
   const { darkMode, handleMode } = useContext(ThemeContext);
   return (
     <Box sx={{ flexGrow: 1 }}>
+
       <AppBar position="static" color={darkMode ? 'default' : 'primary'}>
+
         <Toolbar>
+        
           <IconButton
             size="large"
             edge="start"
@@ -78,14 +82,16 @@ export default function Navbar() {
           >
             <GTranslateIcon />
           </IconButton>
+
           <Typography
             variant="h6"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
             App Login
           </Typography>
+
           <MUISwitch onChange={handleMode}/>
-          {/* <Switch  defaultChecked color="warning" /> */}
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -95,8 +101,11 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+
         </Toolbar>
+
       </AppBar>
+
     </Box>
   );
 }
