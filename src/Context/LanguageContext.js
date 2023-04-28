@@ -20,3 +20,8 @@ export const  LanguageProvider = (props) => {
     )
 }
 
+// export const withLanguageContext = Component => props => {
+//     <LanguageContext.Consumer>
+//         {context => <Component LanguageContext={context} {...props}/>}
+//     </LanguageContext.Consumer>
+// }

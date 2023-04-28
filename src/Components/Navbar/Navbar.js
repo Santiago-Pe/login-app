@@ -15,6 +15,7 @@ import MUISwitch from "../Switch/SwitchMood";
 
 /* ------------ Context ------------*/
 import { ThemeContext } from "../../Context/ThemeContex";
+import { LanguageContext } from "../../Context/LanguageContext";
 
 /* ------------ Styled Components ------------*/
 const Search = styled("div")(({ theme, color }) => ({
@@ -60,52 +61,76 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+
+/* ------------ Words ------------*/
+
+const words = {
+  english:{
+
+      search: 'Search', 
+
+  },
+  french:{
+      
+    search: 'chercher', 
+     
+  },
+  spanish:{
+    search: 'Buscar', 
+  }
+}
+
+
 /* ------------ Components ------------*/
 
 export default function Navbar() {
 
   /* ------------ Context ------------*/
   const { darkMode, handleMode } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
+  const {search} = words[language]
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    
+  
+        <Box sx={{ flexGrow: 1 }}>
 
-      <AppBar position="static" color={darkMode ? 'default' : 'primary'}>
+          <AppBar position="static" color={darkMode ? 'default' : 'primary'}>
 
-        <Toolbar>
-        
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <GTranslateIcon />
-          </IconButton>
+            <Toolbar>
+            
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                sx={{ mr: 2 }}
+              >
+                <GTranslateIcon />
+              </IconButton>
 
-          <Typography
-            variant="h6"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            App Login
-          </Typography>
+              <Typography
+                variant="h6"
+                sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+              >
+                App Login
+              </Typography>
 
-          <MUISwitch onChange={handleMode}/>
+              <MUISwitch onChange={handleMode}/>
 
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder={`${search}...`}
+                  inputProps={{ "aria-label": "search" }}
+                />
+              </Search>
 
-        </Toolbar>
+            </Toolbar>
 
-      </AppBar>
+          </AppBar>
 
-    </Box>
+        </Box>
   );
 }
